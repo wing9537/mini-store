@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import useTranslation from "../hook/useTranslation";
 import {
   Container,
   AppBar,
@@ -11,18 +13,63 @@ import {
   IconButton,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import LangIcon from "@mui/icons-material/Language";
+import messages from "../locales/topNav.json";
 
-const pages = ["Products", "Pricing", "Blog"];
+function MenuList({ openEl, onOpen, items, ...props }) {
+  return (
+    <Menu
+      anchorEl={openEl}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "left",
+      }}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "left",
+      }}
+      open={Boolean(openEl)}
+      {...props}
+    >
+      {items.map(([key, val]) => (
+        <MenuItem key={key} onClick={() => onOpen(key)}>
+          <Typography textAlign="center">{val}</Typography>
+        </MenuItem>
+      ))}
+    </Menu>
+  );
+}
 
 function TopNav() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElLang, setAnchorElLang] = useState(null);
+  const { pathname, asPath, push } = useRouter();
+  const { t, obj } = useTranslation(messages);
+  const pages = Object.entries(obj("pages"));
+  const lauguages = { en: "EN", tc: "繁", sc: "簡" };
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = (e) => {
+    setAnchorElNav(e.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleOpenLangMenu = (e) => {
+    setAnchorElLang(e.currentTarget);
+  };
+
+  const handleCloseLangMenu = () => {
+    setAnchorElLang(null);
+  };
+
+  const switchPage = (page) => {};
+
+  const switchLang = (lang) => {
+    push(pathname, asPath, { locale: lang });
+    handleCloseLangMenu();
   };
 
   return (
@@ -35,48 +82,10 @@ function TopNav() {
             component="div"
             sx={{ mr: 2, display: "flex" }}
           >
-            LOGO
+            {t("logo")}
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "block", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-              sx={{ float: "right" }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            {pages.map(([key, page]) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -85,6 +94,38 @@ function TopNav() {
                 {page}
               </Button>
             ))}
+          </Box>
+          <Box sx={{ marginLeft: "auto" }}>
+            <IconButton
+              size="large"
+              onClick={handleOpenLangMenu}
+              color="inherit"
+            >
+              <LangIcon />
+            </IconButton>
+            <MenuList
+              id="menu-lang"
+              openEl={anchorElLang}
+              onClose={handleCloseLangMenu}
+              onOpen={switchLang}
+              items={Object.entries(lauguages)}
+            />
+            <IconButton
+              size="large"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+              sx={{ display: { md: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <MenuList
+              id="menu-appbar"
+              openEl={anchorElNav}
+              onClose={handleCloseNavMenu}
+              onOpen={switchPage}
+              sx={{ display: { md: "none" } }}
+              items={pages}
+            />
           </Box>
         </Toolbar>
       </Container>

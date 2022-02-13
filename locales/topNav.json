@@ -1,0 +1,26 @@
+{
+  "en": {
+    "logo": "LOGO",
+    "pages": {
+      "product": "Products",
+      "pricing": "Pricing",
+      "blog": "Blog"
+    }
+  },
+  "tc": {
+    "logo": "標誌",
+    "pages": {
+      "product": "產品",
+      "pricing": "定價",
+      "blog": "博客"
+    }
+  },
+  "sc": {
+    "logo": "标志",
+    "pages": {
+      "product": "产品",
+      "pricing": "定价",
+      "blog": "博客"
+    }
+  }
+}
