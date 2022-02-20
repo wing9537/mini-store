@@ -82,7 +82,7 @@ function TopNav() {
             component="div"
             sx={{ mr: 2, display: "flex" }}
           >
-            {t("logo")}
+            {t("logo", { dev: "Tommy Kwok" })}
           </Typography>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map(([key, page]) => (

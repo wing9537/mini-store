@@ -1,6 +1,6 @@
 {
   "en": {
-    "logo": "LOGO",
+    "logo": "Welcome, ${dev}",
     "pages": {
       "product": "Products",
       "pricing": "Pricing",
