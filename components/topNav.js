@@ -36,7 +36,7 @@ function TopNav() {
   const [anchorElLang, setAnchorElLang] = useState(null);
   const { pathname, asPath, push } = useRouter();
   const { t, obj } = useTranslation(messages);
-  const pages = Object.entries(obj("pages") || {});
+  const pages = Object.entries(obj("pages"));
   const lauguages = { en: "EN", tc: "繁", sc: "簡" };
 
   const handleOpenNavMenu = (e) => {

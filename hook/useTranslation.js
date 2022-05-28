@@ -11,7 +11,7 @@ function useTranslation(source) {
   }, deps);
 
   const obj = useCallback((path) => {
-    return get(source[locale], path);
+    return get(source[locale], path) || {};
   }, deps);
 
   return { locale, t, obj };
