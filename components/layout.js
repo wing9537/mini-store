@@ -1,5 +1,6 @@
 import Head from "next/head";
 import TopNav from "./topNav";
+import { Container } from "@mui/material";
 
 function Footer() {
   return <></>;
@@ -22,7 +23,9 @@ function Layout({ children }) {
         />
       </Head>
       <TopNav />
-      <main>{children}</main>
+      <Container maxWidth="xl">
+        <main>{children}</main>
+      </Container>
       <Footer />
     </>
   );

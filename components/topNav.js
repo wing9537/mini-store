@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import useTranslation from "../hook/useTranslation";
 import { Container, AppBar, Toolbar, Menu, MenuItem, Box, Typography, Button, IconButton } from "@mui/material";

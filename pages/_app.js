@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Layout from "../components/layout";
 import "../styles/globals.css";
