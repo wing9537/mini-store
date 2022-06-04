@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 function BaseForm({ modelObj = {}, onSubmit = () => {}, children, ...rest }) {
   const methods = useForm({
     mode: "onBlur",
-    reValidateMode: "onSubmit",
+    reValidateMode: "onChange",
     defaultValues: modelObj,
     resolver: undefined,
     context: undefined,
@@ -17,8 +17,9 @@ function BaseForm({ modelObj = {}, onSubmit = () => {}, children, ...rest }) {
 
   return (
     <FormProvider {...methods}>
-      <Box component="form" onSubmit={methods.handleSubmit(onSubmit)} {...rest}>
+      <Box component="form" autoComplete="off" onSubmit={methods.handleSubmit(onSubmit)} {...rest}>
         {children}
+        <input type="submit" />
       </Box>
     </FormProvider>
   );

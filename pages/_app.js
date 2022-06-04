@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Layout from "../components/layout";
-import "../styles/globals.css";
+import "../styles/theme.css";
 
 function MyApp({ Component, pageProps }) {
   const theme = createTheme({});

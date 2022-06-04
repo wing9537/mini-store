@@ -55,7 +55,9 @@ function TopNav() {
     setAnchorElLang(null);
   };
 
-  const switchPage = (page) => {};
+  const switchPage = (page) => {
+    console.log(`Switch to ${page}`);
+  };
 
   const switchLang = (lang) => {
     push(pathname, asPath, { locale: lang });
@@ -67,7 +69,7 @@ function TopNav() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: "flex" }}>
-            {t("logo", { dev: "Tommy Kwok" })}
+            {t("logo", { dev: "Guest" })}
           </Typography>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map(([key, page]) => (
