@@ -15,6 +15,8 @@ function BaseForm({ modelObj = {}, onSubmit = () => {}, children, ...rest }) {
     delayError: undefined,
   });
 
+  console.log("modelObj", methods.watch());
+
   return (
     <FormProvider {...methods}>
       <Box component="form" autoComplete="off" onSubmit={methods.handleSubmit(onSubmit)} {...rest}>

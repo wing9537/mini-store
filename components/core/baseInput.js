@@ -19,7 +19,7 @@ function BaseInput({
     formState: { errors },
   } = useFormContext();
 
-  const { t } = useTranslation(messages);
+  const { locale, t } = useTranslation(messages);
 
   const [required] = useState(limit.min > 0);
   const [maxLength] = useState(limit.max > -1 ? limit.max : 255);
@@ -36,7 +36,7 @@ function BaseInput({
     if (["min", "minLength"].includes(type)) {
       return t(type, { limit: minLength });
     }
-    return message;
+    return JSON.parse(message)[locale];
   };
 
   console.log(name, error);

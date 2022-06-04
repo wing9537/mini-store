@@ -11,12 +11,10 @@ export default function Home() {
     customValid: "",
   };
 
-  const { t } = useTranslation(messages);
-
-  const exactStr = t("exactStr");
+  const { t, msg } = useTranslation(messages);
 
   const validExactValue = (value) => {
-    return value == exactStr || t("validate.exact", { text: exactStr });
+    return value == "pass" || msg("validate.exact", { text: "pass" });
   };
 
   return (
