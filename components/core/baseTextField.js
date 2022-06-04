@@ -7,4 +7,6 @@ import { TextField } from "@mui/material";
  */
 const BaseTextField = forwardRef((props, ref) => <TextField sx={{ m: 2 }} inputRef={ref} InputLabelProps={{ shrink: true }} {...props} />);
 
+BaseTextField.displayName = "BaseTextField";
+
 export default BaseTextField;
