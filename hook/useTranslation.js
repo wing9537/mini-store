@@ -1,6 +1,6 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import { useRouter } from "next/router";
-import { get, template, isEmpty } from "lodash-es";
+import { get, template } from "lodash-es";
 
 function useTranslation(source) {
   const { locale } = useRouter();

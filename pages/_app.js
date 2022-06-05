@@ -4,7 +4,11 @@ import Layout from "../components/layout";
 import "../styles/theme.css";
 
 function MyApp({ Component, pageProps }) {
-  const theme = createTheme({});
+  const theme = createTheme({
+    palette: {
+      secondary: { main: "#64748B" },
+    },
+  });
 
   useEffect(() => {
     // Remove the server-side injected CSS.

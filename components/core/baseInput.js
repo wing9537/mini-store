@@ -4,6 +4,7 @@ import useTranslation from "../../hook/useTranslation";
 import BaseTextField from "./baseTextField";
 import { isEmpty } from "lodash-es";
 import messages from "../../locales/errorMsg.json";
+import { form } from "../../constant/common";
 
 function BaseInput({
   name = "",
@@ -17,6 +18,7 @@ function BaseInput({
   const {
     register,
     formState: { errors },
+    formStatus,
   } = useFormContext();
 
   const { locale, t } = useTranslation(messages);
@@ -55,6 +57,7 @@ function BaseInput({
           label={required ? `${label} *` : label}
           error={!isEmpty(error?.type)}
           helperText={error?.type && errorMsg(error)}
+          disabled={formStatus == form.confirm}
           {...rest}
         />
       );
