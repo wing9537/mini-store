@@ -8,10 +8,14 @@ function BaseSelect({ id = "sel", label = "", error = false, helperText = "", op
   return (
     <Box m={2} sx={{ minWidth: 120 }}>
       <FormControl fullWidth error={error}>
-        <InputLabel id={id} shrink children={label} />
+        <InputLabel id={id} shrink>
+          {label}
+        </InputLabel>
         <Select id={id} labelId={`${id}-lbl`} input={<OutlinedInput notched label={label} />} {...rest}>
           {Object.entries(options).map(([key, val]) => (
-            <MenuItem key={key} value={key} children={val} />
+            <MenuItem key={key} value={key}>
+              {val}
+            </MenuItem>
           ))}
         </Select>
         <FormHelperText>{error && helperText}</FormHelperText>
