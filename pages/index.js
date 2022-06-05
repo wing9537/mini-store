@@ -4,6 +4,7 @@ import BaseInput from "../components/core/baseInput";
 import BaseTextField from "../components/core/baseTextField";
 import { Box } from "@mui/material";
 import messages from "../locales/home.json";
+import { input } from "../constant";
 
 export default function Home() {
   const modelObj = {

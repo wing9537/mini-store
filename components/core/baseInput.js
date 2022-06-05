@@ -4,7 +4,7 @@ import useTranslation from "../../hook/useTranslation";
 import BaseTextField from "./baseTextField";
 import { isEmpty } from "lodash-es";
 import messages from "../../locales/errorMsg.json";
-import { form } from "../../constant/common";
+import { form } from "../../constant";
 
 function BaseInput({
   name = "",
@@ -47,7 +47,7 @@ function BaseInput({
     case "text":
       return (
         <BaseTextField
-          {...register(name, {
+          inputProps={register(name, {
             required,
             maxLength,
             minLength,
@@ -61,6 +61,14 @@ function BaseInput({
           {...rest}
         />
       );
+    case "select":
+      return <></>;
+    case "radio":
+      return <></>;
+    case "checkbox":
+      return <></>;
+    case "datepicker":
+      return <></>;
     default:
       return <></>;
   }
