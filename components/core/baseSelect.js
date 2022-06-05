@@ -6,7 +6,7 @@ import { Box, InputLabel, MenuItem, FormControl, Select, OutlinedInput, FormHelp
  */
 function BaseSelect({ id = "sel", label = "", error = false, helperText = "", options = {}, ...rest }) {
   return (
-    <Box m={2} sx={{ minWidth: 120 }}>
+    <Box m={2} sx={{ minWidth: 200 }}>
       <FormControl fullWidth error={error}>
         <InputLabel id={id} shrink>
           {label}
