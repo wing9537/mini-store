@@ -8,7 +8,7 @@ import { form } from "../../constant";
 
 function BaseForm({ modelObj = {}, onSubmit = () => {}, children, ...rest }) {
   const methods = useForm({
-    mode: "onBlur",
+    mode: "onTouched",
     reValidateMode: "onChange",
     defaultValues: modelObj,
     resolver: undefined,

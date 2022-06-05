@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import useTranslation from "../../hook/useTranslation";
 import BaseTextField from "./baseTextField";
+import BaseSelect from "./baseSelect";
 import { isEmpty } from "lodash-es";
 import messages from "../../locales/errorMsg.json";
 import { form } from "../../constant";
@@ -19,6 +20,7 @@ function BaseInput({
     register,
     formState: { errors },
     formStatus,
+    getValues,
   } = useFormContext();
 
   const { locale, t } = useTranslation(messages);
@@ -62,7 +64,22 @@ function BaseInput({
         />
       );
     case "select":
-      return <></>;
+      return (
+        <BaseSelect
+          inputProps={register(name, {
+            required,
+            validate: rules,
+          })}
+          id={`sel-${name}`}
+          label={required ? `${label} *` : label}
+          value={getValues(name)}
+          options={options}
+          error={!isEmpty(error?.type)}
+          helperText={error?.type && errorMsg(error)}
+          disabled={formStatus == form.confirm}
+          {...rest}
+        />
+      );
     case "radio":
       return <></>;
     case "checkbox":
