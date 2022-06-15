@@ -69,7 +69,7 @@ function TopNav() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: "flex" }}>
-            {t("logo", { dev: "Guest" })}
+            {t("logo")}
           </Typography>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {pages.map(([key, page]) => (

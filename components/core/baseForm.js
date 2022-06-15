@@ -64,17 +64,17 @@ function BaseForm({ modelObj = {}, onSubmit = () => {}, children, ...rest }) {
             </Button>
           )}
           {formStatus == form.confirm && (
-            <Button sx={{ mr: "auto" }} color="secondary" size="large" variant="contained" onClick={backAction}>
+            <Button sx={{ ml: "auto", mr: "10px" }} color="secondary" size="large" variant="contained" onClick={backAction}>
               {t("back")}
             </Button>
           )}
           {formStatus == form.confirm && (
-            <Button sx={{ ml: "auto" }} color="success" size="large" variant="contained" onClick={confirmAction}>
+            <Button sx={{ ml: "10px", mr: "auto" }} color="success" size="large" variant="contained" onClick={confirmAction}>
               {t("confirm")}
             </Button>
           )}
           {formStatus == form.edit && (
-            <Button sx={{ ml: "auto" }} type="submit" color="info" size="large" variant="contained">
+            <Button sx={{ mx: "auto" }} type="submit" color="info" size="large" variant="contained">
               {t("submit")}
             </Button>
           )}

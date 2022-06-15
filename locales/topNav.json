@@ -1,6 +1,6 @@
 {
   "en": {
-    "logo": "Welcome, ${dev}",
+    "logo": "Welcome",
     "pages": {
       "product": "Products",
       "pricing": "Pricing",
@@ -8,7 +8,7 @@
     }
   },
   "tc": {
-    "logo": "標誌",
+    "logo": "歡迎",
     "pages": {
       "product": "產品",
       "pricing": "定價",
@@ -16,7 +16,7 @@
     }
   },
   "sc": {
-    "logo": "标志",
+    "logo": "欢迎",
     "pages": {
       "product": "产品",
       "pricing": "定价",
