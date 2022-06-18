@@ -11,7 +11,7 @@ function BaseSelect({ id = "select", label = "", error = false, helperText = "",
         <InputLabel id={`lbl-${id}`} shrink>
           {label}
         </InputLabel>
-        <Select id={id} labelId={`lbl-${id}`} input={<OutlinedInput notched label={label} />} {...rest}>
+        <Select id={id} input={<OutlinedInput notched label={label} />} {...rest}>
           {Object.entries(options).map(([key, val]) => (
             <MenuItem key={key} value={key}>
               {val}

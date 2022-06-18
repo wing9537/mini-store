@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import useTranslation from "../../hook/useTranslation";
 import BaseTextField from "./baseTextField";
 import BaseSelect from "./baseSelect";
-import { isEmpty } from "lodash-es";
+import BaseRadio from "./baseRadio";
 import messages from "../../locales/errorMsg.json";
 import { form } from "../../constant";
 
@@ -43,6 +43,13 @@ function BaseInput({
     return JSON.parse(message)[locale];
   };
 
+  const mandatoryLabel = (
+    <>
+      {label}
+      {required && <span className="danger"> *</span>}
+    </>
+  );
+
   console.log(name, error);
 
   switch (type) {
@@ -56,9 +63,9 @@ function BaseInput({
             validate: rules,
           })}
           id={`txt-${name}`}
-          label={required ? `${label} *` : label}
-          error={!isEmpty(error?.type)}
-          helperText={error?.type && errorMsg(error)}
+          label={mandatoryLabel}
+          error={!!error?.type}
+          helperText={error && errorMsg(error)}
           disabled={formStatus == form.confirm}
           {...rest}
         />
@@ -71,17 +78,32 @@ function BaseInput({
             validate: rules,
           })}
           id={`sel-${name}`}
-          label={required ? `${label} *` : label}
+          label={mandatoryLabel}
           value={getValues(name)}
           options={options}
-          error={!isEmpty(error?.type)}
-          helperText={error?.type && errorMsg(error)}
+          error={!!error?.type}
+          helperText={error && errorMsg(error)}
           disabled={formStatus == form.confirm}
           {...rest}
         />
       );
     case "radio":
-      return <></>;
+      return (
+        <BaseRadio
+          inputProps={register(name, {
+            required,
+            validate: rules,
+          })}
+          id={`rad-${name}`}
+          label={mandatoryLabel}
+          value={getValues(name)}
+          options={options}
+          error={!!error?.type}
+          helperText={error && errorMsg(error)}
+          disabled={formStatus == form.confirm}
+          {...rest}
+        />
+      );
     case "checkbox":
       return <></>;
     case "datepicker":
