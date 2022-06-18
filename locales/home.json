@@ -6,6 +6,7 @@
     "sampleText": "Text Field",
     "sampleSelect": "Dropdown List",
     "sampleRadio": "Radio Group",
+    "sampleCheckbox": "Checkbox Group",
     "sampleData": {
       "opt0": "Testing 1",
       "opt1": "Testing 2",
@@ -22,6 +23,7 @@
     "sampleText": "文字輸入",
     "sampleSelect": "下拉列表",
     "sampleRadio": "單選按鈕",
+    "sampleCheckbox": "複選框",
     "sampleData": {
       "opt0": "測試 1",
       "opt1": "測試 2",
@@ -38,6 +40,7 @@
     "sampleText": "文字输入",
     "sampleSelect": "下拉列表",
     "sampleRadio": "单选按钮",
+    "sampleCheckbox": "复选框",
     "sampleData": {
       "opt0": "测试 1",
       "opt1": "测试 2",

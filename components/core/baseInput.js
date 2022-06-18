@@ -4,6 +4,7 @@ import useTranslation from "../../hook/useTranslation";
 import BaseTextField from "./baseTextField";
 import BaseSelect from "./baseSelect";
 import BaseRadio from "./baseRadio";
+import BaseCheckbox from "./baseCheckbox";
 import messages from "../../locales/errorMsg.json";
 import { form } from "../../constant";
 
@@ -105,7 +106,22 @@ function BaseInput({
         />
       );
     case "checkbox":
-      return <></>;
+      return (
+        <BaseCheckbox
+          inputProps={register(name, {
+            required,
+            validate: rules,
+          })}
+          id={`chk-${name}`}
+          label={mandatoryLabel}
+          value={getValues(name)}
+          options={options}
+          error={!!error?.type}
+          helperText={error && errorMsg(error)}
+          disabled={formStatus == form.confirm}
+          {...rest}
+        />
+      );
     case "datepicker":
       return <></>;
     default:

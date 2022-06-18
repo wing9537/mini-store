@@ -11,6 +11,7 @@ export default function Home() {
     customValid: "",
     sampleSelect: "",
     sampleRadio: "",
+    sampleCheckbox: [],
   };
 
   const limit = {
@@ -18,6 +19,7 @@ export default function Home() {
     customValid: { min: 1, max: -1 },
     sampleSelect: { min: 1, max: -1 },
     sampleRadio: { min: 1, max: -1 },
+    sampleCheckbox: { min: 1, max: 1 },
   };
 
   const { t, obj, msg } = useTranslation(messages);
@@ -35,6 +37,7 @@ export default function Home() {
         <BaseInput name="customValid" type="text" label={t("customValid")} rules={validExactValue} limit={limit.customValid} />
         <BaseInput name="sampleSelect" type="select" label={t("sampleSelect")} options={obj("sampleData")} limit={limit.sampleSelect} />
         <BaseInput name="sampleRadio" type="radio" label={t("sampleRadio")} options={obj("sampleData")} limit={limit.sampleRadio} />
+        <BaseInput name="sampleCheckbox" type="checkbox" label={t("sampleCheckbox")} options={obj("sampleData")} limit={limit.sampleCheckbox} />
       </Box>
     </BaseForm>
   );
