@@ -30,3 +30,9 @@ footer a {
   align-items: center;
   flex-grow: 1;
 }
+
+.outlined-input {
+  border: 1px solid #0000004d;
+  border-radius: 4px;
+  padding-left: 14px;
+}

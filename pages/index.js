@@ -2,6 +2,7 @@ import useTranslation from "../hook/useTranslation";
 import BaseForm from "../components/core/baseForm";
 import BaseInput from "../components/core/baseInput";
 import BaseTextField from "../components/core/baseTextField";
+import BaseRadio from "../components/core/baseRadio";
 import { Box } from "@mui/material";
 import messages from "../locales/home.json";
 
@@ -32,6 +33,7 @@ export default function Home() {
         <BaseTextField label={t("uncontrolled")} />
         <BaseInput name="customValid" type="text" label={t("customValid")} rules={validExactValue} />
         <BaseInput name="sampleSelect" type="select" label="Testing" options={obj("optSelect")} limit={limit.sampleSelect} />
+        <BaseRadio />
       </Box>
     </BaseForm>
   );
