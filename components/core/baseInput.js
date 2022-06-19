@@ -46,7 +46,7 @@ function BaseInput({
     return JSON.parse(message)[locale];
   };
 
-  const [mandatoryLabel] = useState(
+  const mandatoryLabel = (
     <>
       {label}
       {required && <span className="danger"> *</span>}
