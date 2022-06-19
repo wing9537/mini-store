@@ -2,6 +2,9 @@ import useTranslation from "../hook/useTranslation";
 import BaseForm from "../components/core/baseForm";
 import BaseInput from "../components/core/baseInput";
 import BaseTextField from "../components/core/baseTextField";
+import BaseSelect from "../components/core/baseSelect";
+import BaseRadio from "../components/core/baseRadio";
+import BaseCheckbox from "../components/core/baseCheckbox";
 import { Box } from "@mui/material";
 import messages from "../locales/home.json";
 
@@ -23,6 +26,7 @@ export default function Home() {
   };
 
   const { t, obj, msg } = useTranslation(messages);
+  const sampleData = obj("sampleData");
 
   const validExactValue = (value) => {
     return value == "pass" || msg("validate.exact", { text: "pass" });
@@ -31,13 +35,19 @@ export default function Home() {
   return (
     <BaseForm modelObj={modelObj}>
       <h1 style={{ textAlign: "center" }}>{t("title")}</h1>
-      <Box m={4} display="flex" flexWrap="wrap" justifyContent="center">
+      <Box width="50%" display="inline-flex" flexWrap="wrap" justifyContent="right">
         <BaseInput name="sampleText" type="text" label={t("sampleText")} limit={limit.sampleText} />
-        <BaseTextField label={t("uncontrolled")} />
         <BaseInput name="customValid" type="text" label={t("customValid")} rules={validExactValue} limit={limit.customValid} />
-        <BaseInput name="sampleSelect" type="select" label={t("sampleSelect")} options={obj("sampleData")} limit={limit.sampleSelect} />
-        <BaseInput name="sampleRadio" type="radio" label={t("sampleRadio")} options={obj("sampleData")} limit={limit.sampleRadio} />
-        <BaseInput name="sampleCheckbox" type="checkbox" label={t("sampleCheckbox")} options={obj("sampleData")} limit={limit.sampleCheckbox} />
+        <BaseInput name="sampleSelect" type="select" label={t("sampleSelect")} options={sampleData} limit={limit.sampleSelect} />
+        <BaseInput name="sampleRadio" type="radio" label={t("sampleRadio")} options={sampleData} limit={limit.sampleRadio} />
+        <BaseInput name="sampleCheckbox" type="checkbox" label={t("sampleCheckbox")} options={sampleData} limit={limit.sampleCheckbox} />
+      </Box>
+      <Box width="50%" display="inline-flex" flexWrap="wrap" justifyContent="left">
+        <BaseTextField label={t("uncontrolled")} type="password" />
+        <BaseTextField label={t("uncontrolled")} type="number" />
+        <BaseSelect label={t("uncontrolled")} options={sampleData} />
+        <BaseRadio label={t("uncontrolled")} options={sampleData} />
+        <BaseCheckbox label={t("uncontrolled")} options={sampleData} />
       </Box>
     </BaseForm>
   );

@@ -19,9 +19,9 @@ function BaseCheckbox({ id = "checkbox", label = "", value = [], error = false, 
   };
 
   return (
-    <Box m={2} sx={{ minWidth: 210 }}>
+    <Box m={2} display="inline-flex">
       <FormControl error={error}>
-        <Box px={2} py={1} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
+        <Box px={2} py={1} sx={{ minWidth: 210 }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
           <InputLabel id={`lbl-${id}`} shrink>
             {label}
           </InputLabel>

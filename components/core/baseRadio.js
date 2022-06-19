@@ -6,13 +6,13 @@ import { Box, Radio, RadioGroup, FormControlLabel, FormControl, InputLabel, Form
  */
 function BaseRadio({ id = "radio", label = "", error = false, helperText = "", options = {}, inputProps = {}, disabled = false, ...rest }) {
   return (
-    <Box m={2} sx={{ minWidth: 210 }}>
+    <Box m={2} display="inline-flex">
       <FormControl error={error}>
-        <Box px={2} py={1} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
+        <Box px={2} py={1} sx={{ minWidth: 210 }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
           <InputLabel id={`lbl-${id}`} shrink>
             {label}
           </InputLabel>
-          <RadioGroup id={id} {...inputProps} {...rest}>
+          <RadioGroup id={id} defaultValue="" {...inputProps} {...rest}>
             {Object.entries(options).map(([key, val]) => (
               <FormControlLabel key={key} value={key} label={val} disabled={disabled} inputRef={inputProps.ref} control={<Radio />} />
             ))}
