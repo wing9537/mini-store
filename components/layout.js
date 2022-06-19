@@ -14,7 +14,7 @@ function Layout({ children }) {
         <meta name="description" content="React simple form" />
       </Head>
       <TopNav />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ overflow: "hidden" }}>
         <main>{children}</main>
       </Container>
       <Footer />

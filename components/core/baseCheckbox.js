@@ -6,7 +6,6 @@ import { Box, Checkbox, FormGroup, FormControlLabel, FormControl, InputLabel, Fo
  */
 function BaseCheckbox({ id = "checkbox", label = "", value = [], error = false, helperText = "", options = {}, inputProps = {}, disabled = false, ...rest }) {
   const handleChange = (e, item) => {
-    // const item = e.target.value;
     const index = value.indexOf(item);
     if (index > -1) {
       value.splice(index, 1);
@@ -21,7 +20,7 @@ function BaseCheckbox({ id = "checkbox", label = "", value = [], error = false, 
   return (
     <Box m={2} display="inline-flex">
       <FormControl error={error}>
-        <Box px={2} py={1} sx={{ minWidth: 210 }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
+        <Box px={2} py={1} sx={{ width: "15em" }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
           <InputLabel id={`lbl-${id}`} shrink>
             {label}
           </InputLabel>

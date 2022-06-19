@@ -8,7 +8,7 @@ function BaseRadio({ id = "radio", label = "", error = false, helperText = "", o
   return (
     <Box m={2} display="inline-flex">
       <FormControl error={error}>
-        <Box px={2} py={1} sx={{ minWidth: 210 }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
+        <Box px={2} py={1} sx={{ width: "15em" }} className={`outlined-input ${disabled ? "disabled" : error ? "error" : ""}`}>
           <InputLabel id={`lbl-${id}`} shrink>
             {label}
           </InputLabel>

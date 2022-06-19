@@ -7,6 +7,7 @@
     "sampleSelect": "Dropdown List",
     "sampleRadio": "Radio Group",
     "sampleCheckbox": "Checkbox Group",
+    "sampleDatePicker": "Date Picker",
     "sampleData": {
       "opt0": "Testing 1",
       "opt1": "Testing 2",
@@ -24,6 +25,7 @@
     "sampleSelect": "下拉列表",
     "sampleRadio": "單選按鈕",
     "sampleCheckbox": "複選框",
+    "sampleDatePicker": "日期選擇器",
     "sampleData": {
       "opt0": "測試 1",
       "opt1": "測試 2",
@@ -41,6 +43,7 @@
     "sampleSelect": "下拉列表",
     "sampleRadio": "单选按钮",
     "sampleCheckbox": "复选框",
+    "sampleDatePicker": "日期选择器",
     "sampleData": {
       "opt0": "测试 1",
       "opt1": "测试 2",

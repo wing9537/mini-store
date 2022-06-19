@@ -5,8 +5,10 @@ import BaseTextField from "./baseTextField";
 import BaseSelect from "./baseSelect";
 import BaseRadio from "./baseRadio";
 import BaseCheckbox from "./baseCheckbox";
+import BaseDatePicker from "./baseDatePicker";
 import messages from "../../locales/errorMsg.json";
 import { form } from "../../constant";
+import { isValidDate } from "../../utils";
 
 function BaseInput({
   name = "",
@@ -123,7 +125,23 @@ function BaseInput({
         />
       );
     case "datepicker":
-      return <></>;
+      return (
+        <BaseDatePicker
+          inputProps={register(name, {
+            required,
+            validate: {
+              pattern: isValidDate,
+              ...rules,
+            },
+          })}
+          id={`dpk-${name}`}
+          label={mandatoryLabel}
+          error={!!error?.type}
+          helperText={error && errorMsg(error)}
+          disabled={formStatus == form.confirm}
+          {...rest}
+        />
+      );
     default:
       return <></>;
   }

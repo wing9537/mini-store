@@ -4,4 +4,9 @@ const form = {
   completed: "completed",
 };
 
-export { form };
+const date = {
+  format: "DD/MM/YYYY",
+  mask: "__/__/____",
+};
+
+export { form, date };
