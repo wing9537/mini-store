@@ -1,13 +1,13 @@
 import Head from "next/head";
 import TopNav from "./topNav";
-import { Box, Container } from "@mui/material";
+import { Container } from "@mui/material";
 
 function Footer() {
   return (
     <footer>
       <div>Powered by Tommy Kwok</div>
       <a href="https://github.com/wing9537/mini-store/" target="_blank">
-        GitHub:&ensp;<u>https://github.com/wing9537/mini-store/</u>
+        Visit to GitHub
       </a>
     </footer>
   );
