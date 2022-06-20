@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer>
       <div>Powered by Tommy Kwok</div>
-      <a href="https://github.com/wing9537/mini-store/" target="_blank" ref="noreferrer">
+      <a href="https://github.com/wing9537/mini-store/" target="_blank" rel="noreferrer">
         Visit to GitHub
       </a>
     </footer>
